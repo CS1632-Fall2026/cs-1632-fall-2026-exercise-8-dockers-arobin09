@@ -134,7 +134,7 @@ test("TEST-9-GREET-A-CAT", async ({ page }) => {
 });
 
 test("TEST-10-GREET-A-CAT-WITH-NAME", async ({ page }) => {
-  await page.goto("https://cs1632.appspot.com/greet-a-cat/Jennyanydots");
+  await page.goto(baseURL);
   await expect(
     page.getByText("Meow! from Jennyanydots.", { exact: true }),
   ).toBeVisible();
@@ -149,34 +149,3 @@ test("TEST-11-FEED-A-CAT-SCREENSHOT", async ({ page }) => {
   await page.getByRole("link", { name: "Feed-A-Cat" }).click();
   await expect(page.locator("body")).toHaveScreenshot();
 });
-
-// test("DEFECT1-FUN-GREET-A-CAT", async ({ page }) => {
-//   await page.evaluate(() => {
-//     document.cookie = "1=true";
-//     document.cookie = "2=false";
-//     document.cookie = "3=false";
-//   });
-//   await page.getByRole("link", { name: "Greet-A-Cat" }).click();
-//   await expect(page.locator("#greeting")).toHaveText("Meow!Meow!");
-// });
-
-// test("DEFECT2-FUN-FEED", async ({ page }) => {
-//   await page.getByRole("link", { name: "Feed-A-Cat" }).click();
-//   await page.getByRole("textbox").fill("-6");
-//   await page.getByRole("button", { name: "Feed" }).click();
-//   await expect(page.locator("#feedResult")).toContainText("Cat fight!", {
-//     timeout: 10_000,
-//   });
-// });
-
-// test("DEFECT3-FUN-GREET-A-CAT-WITH-NAME", async ({ page }) => {
-//   await page.evaluate(() => {
-//     document.cookie = "1=true";
-//     document.cookie = "2=true";
-//     document.cookie = "3=true";
-//   });
-//   await page.goto("https://cs1632.appspot.com/greet-a-cat/Mistoffelees");
-//   await expect(page.locator("#greeting")).toContainText(
-//     "Mistoffelees is not here.",
-//   );
-// });
