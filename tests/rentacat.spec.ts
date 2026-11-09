@@ -134,7 +134,7 @@ test("TEST-9-GREET-A-CAT", async ({ page }) => {
 });
 
 test("TEST-10-GREET-A-CAT-WITH-NAME", async ({ page }) => {
-  await page.goto(baseURL + "/Jennyanydots");
+  await page.goto(baseURL + "/greet-a-cat/Jennyanydots");
   await expect(
     page.getByText("Meow! from Jennyanydots.", { exact: true }),
   ).toBeVisible();
